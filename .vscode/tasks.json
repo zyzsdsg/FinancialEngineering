@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build bs.so with pybind11",
+      "type": "shell",
+      "command": "clang++",
+      "args": [
+        "-arch", "arm64",
+        "-std=c++17",
+        "-shared",
+        "-fPIC",
+        "-g",
+        "-o", "${fileDirname}/bs.cpython-310-darwin.so",
+        "${file}",
+        "-I/Users/yuzhezhang/anaconda3/envs/VIX/include/python3.10",
+        "-I/Users/yuzhezhang/anaconda3/envs/VIX/lib/python3.10/site-packages/pybind11/include",
+        "-L/Users/yuzhezhang/anaconda3/envs/VIX/lib/python3.10/config-3.10-darwin",
+        "-ldl",
+        "-framework", "CoreFoundation",
+        "-undefined", "dynamic_lookup"
+        ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
